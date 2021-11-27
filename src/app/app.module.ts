@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ListeComponent } from './dashboard/liste/liste.component';
 import { DetailComponent } from './dashboard/detail/detail.component';
 import { RechercheComponent } from './dashboard/recherche/recherche.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RechercheComponent } from './dashboard/recherche/recherche.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
