@@ -8,6 +8,8 @@ import { ListeComponent } from './dashboard/liste/liste.component';
 import { DetailComponent } from './dashboard/detail/detail.component';
 import { RechercheComponent } from './dashboard/recherche/recherche.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './header/header.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DashboardComponent,
     ListeComponent,
     DetailComponent,
-    RechercheComponent
+    RechercheComponent,
+    HeaderComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
