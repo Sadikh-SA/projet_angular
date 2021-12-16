@@ -1,5 +1,4 @@
-{  
-  "Utilisateur": [  
+[  
       {  
         "id": 1,  
         "nom": "Ababacar Sadikh GUEYE",
@@ -72,4 +71,3 @@
         "status": true
       }
     ]
-  }

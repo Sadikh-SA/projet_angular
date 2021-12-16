@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import $ from 'jquery';
+import {MatIconModule} from '@angular/material/icon';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-header',

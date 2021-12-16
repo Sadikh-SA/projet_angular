@@ -1,1 +1,14 @@
-<p>dashboard works!</p>
+<div class="row container" fxFill fxLayout="column" fxLayoutAlign="space-between">
+  <div class="card" style="width: 18rem; height: 60%px;" *ngFor="let livre of data">
+    <div><img src="../../assets/Images/{{livre.image_url}}" class="card-img-top" alt="Image du livre" style="overflow: hidden; height: 100px; width: 200%;"></div>
+    <div class="card-body" style="width: 17rem;">
+      <p class="card-text">{{livre.nom}}</p>
+    </div>
+  </div>
+</div>
+<mat-paginator [length]="data2.length"
+                  [pageSize]="size"
+                  [pageIndex]="page"
+                  [pageSizeOptions]="[4, 8, 12]"
+                  (page)="getData($event)">
+</mat-paginator>

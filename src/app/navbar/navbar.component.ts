@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import data from "../categories.json";
 
 interface Categories {
   id : Number,
-  titre : string
+  titre : String
 }
 
 @Component({
@@ -14,9 +13,7 @@ interface Categories {
 export class NavbarComponent implements OnInit {
 
   constructor() { }
-  public categoriesList: any[] = data;
   ngOnInit(): void {
-      console.log("categories",this.categoriesList);
   }
 
 }
