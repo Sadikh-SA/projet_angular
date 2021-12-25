@@ -9,28 +9,28 @@ import { ServiceService } from '../Services/service.service';
 })
 export class DashboardComponent implements OnInit {
 
-  livre_trier: Livre[] = [];
-  livres: Livre[] = [];
+  data: Livre[] = [];
+  data2: Livre[] = [];
   constructor(private monService: ServiceService) { }
 
   ngOnInit(): void {
     //this.monService.livres.subscribe( (livres: any) => {
-      this.livres = this.monService.livres
+      this.data2 = this.monService.livres
     //})
-    console.log("data2:",this.livres);
-    this.getLivres({pageIndex: this.page, pageSize: this.size});
-    console.log("data:",this.livre_trier);
+    console.log("data2:",this.data2);
+    this.getData({pageIndex: this.page, pageSize: this.size});
+    console.log("data:",this.data);
   }
 
   page = 0;
-  size = 6;
+  size = 4;
 
-  getLivres(obj: { pageIndex: any; pageSize: any; }) {
+  getData(obj: { pageIndex: any; pageSize: any; }) {
     let index=0,
         startingIndex=obj.pageIndex * obj.pageSize,
         endingIndex=startingIndex + obj.pageSize;
 
-    this.livre_trier = this.livres.filter(() => {
+    this.data = this.data2.filter(() => {
       index++;
       return (index > startingIndex && index <= endingIndex) ? true : false;
     });
