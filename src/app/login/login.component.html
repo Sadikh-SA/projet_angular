@@ -1,10 +1,10 @@
 <section class="breadcrumb-section">
-    <h2 class="sr-only">Site Breadcrumb</h2>
+    <h2 class="sr-only"></h2>
     <div class="container">
         <div class="breadcrumb-contents">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Acceui</a></li>
+                    <li class="breadcrumb-item"><a href="index.html">Acceuil</a></li>
                     <li class="breadcrumb-item active">Connexion</li>
                 </ol>
             </nav>
@@ -24,22 +24,22 @@
                             <div class="col-md-12 col-12 mb--15">
                                 <label for="email">Nom complet</label>
                                 <input class="mb-0 form-control" type="text" id="name"
-                                    placeholder="Enter your full name">
+                                    placeholder="Entrer votre nom complet" #nom_complet >
                             </div>
                             <div class="col-12 mb--20">
                                 <label for="email">Email</label>
-                                <input class="mb-0 form-control" type="email" id="email" placeholder="Entrer votre email ici..">
+                                <input class="mb-0 form-control" type="email" id="email" placeholder="Entrer votre email ici.." #email>
                             </div>
                             <div class="col-lg-6 mb--20">
                                 <label for="password">Mot de passe</label>
-                                <input class="mb-0 form-control" type="password" id="password" placeholder="Enter votre mot de passe">
+                                <input class="mb-0 form-control" type="password" id="password" placeholder="Enter votre mot de passe" #mdp>
                             </div>
                             <div class="col-lg-6 mb--20">
                                 <label for="password">Confirmer mot de passe</label>
-                                <input class="mb-0 form-control" type="password" id="repeat-password" placeholder="Entrer à nouvau votre mot de passe">
+                                <input class="mb-0 form-control" type="password" id="repeat-password" placeholder="Entrer à nouvau votre mot de passe" #mdp2>
                             </div>
                             <div class="col-md-12">
-                                <a href="#" class="btn btn-outlined">S'inscrire</a>
+                                <a (click)="register({nom_complet: nom_complet.value, email: email.value, password1: mdp.value, password2: mdp2.value })" class="btn btn-outlined">S'inscrire</a>
                             </div>
                         </div>
                     </div>
@@ -54,14 +54,14 @@
                             <div class="col-md-12 col-12 mb--15">
                                 <label for="email">Entrer votre email ici...</label>
                                 <input class="mb-0 form-control" type="email" id="email1"
-                                    placeholder="Entrer votre email ici...">
+                                    placeholder="Entrer votre email ici..." #loginEmail>
                             </div>
                             <div class="col-12 mb--20">
                                 <label for="password">Mot de passe</label>
-                                <input class="mb-0 form-control" type="password" id="login-password" placeholder="Entrer votre mot de passe">
+                                <input class="mb-0 form-control" type="password" id="login-password" placeholder="Entrer votre mot de passe" #loginPassword>
                             </div>
                             <div class="col-md-12">
-                                <a href="#" class="btn btn-outlined">Se connecter</a>
+                                <a class="btn btn-outlined" (click)="login({ email: loginEmail.value, password: loginPassword.value })">Se connecter</a>
                             </div>
                         </div>
                     </div>

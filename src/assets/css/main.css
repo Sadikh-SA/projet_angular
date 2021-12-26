@@ -16476,7 +16476,7 @@ input[type="number"] {
     float: none;
     font-weight: 400;
     background: #fff;
-    border: 2px solid #eee;
+    border: 2px solid #b5bfb0;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -webkit-box-shadow: none !important;
@@ -21526,7 +21526,7 @@ p.form-messege {
     float: none;
     font-weight: 400;
     background: #fff;
-    border: 2px solid #eee;
+    border: 2px solid #b5bfb0;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -webkit-box-shadow: none !important;
@@ -21539,3 +21539,12 @@ p.form-messege {
     padding-left: 0px !important;
     padding-right: 0px;
   }
+
+  .product-card .product-header {
+    height: 100px !important;
+}
+
+
+.product-card .card-image img {
+  max-height: 300px !important;
+}
