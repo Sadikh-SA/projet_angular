@@ -12,13 +12,13 @@ export class HeaderComponent implements OnInit {
 
   constructor(private partageService:PartageService) {}
   public panier: any;
-  public accessToken: any;
-  public nomClient: any;
+  public accessToken: any = "";
+  public nomClient: any= "";
   ngOnInit(): void {
     this.partageService.panier.subscribe((panier: any) => this.panier = panier);
-    if(localStorage.getItem("accessToken")!=null) {this.accessToken = localStorage.getItem("accessToken");}
-    if(localStorage.getItem("nomClient")!=null) {this.accessToken = this.nomClient = localStorage.getItem("nomClient");}
-    
+    if(localStorage.getItem("accessToken")!=null && localStorage.getItem("accessToken")!=undefined) {this.accessToken = localStorage.getItem("accessToken");}
+    if(localStorage.getItem("nomClient")!=null && localStorage.getItem("nomClient") !=undefined) { this.nomClient = localStorage.getItem("nomClient");}
+    console.log(this.nomClient,this.accessToken );
   }
 
   prixDuPanier(panier: any[]) : any {
