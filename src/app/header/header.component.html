@@ -27,7 +27,7 @@
                 <div class="col-lg-4">
                     <div class="main-navigation flex-lg-right">
                         <div class="cart-widget">
-                            <div class="login-block" *ngIf="accessToken.length<10 || !accessToken.length ">
+                            <div class="login-block" *ngIf="accessToken.length<10">
                                 <a routerLink="auth" class="font-weight-bold">Se connecter</a> <br>
                                 <span>or</span><a routerLink="auth">S'inscrire</a>
                             </div>

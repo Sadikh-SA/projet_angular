@@ -16,8 +16,8 @@ export class HeaderComponent implements OnInit {
   public nomClient: any;
   ngOnInit(): void {
     this.partageService.panier.subscribe((panier: any) => this.panier = panier);
-    this.accessToken = localStorage.getItem("accessToken");
-    this.nomClient = localStorage.getItem("nomClient");
+    if(localStorage.getItem("accessToken")!=null) {this.accessToken = localStorage.getItem("accessToken");}
+    if(localStorage.getItem("nomClient")!=null) {this.accessToken = this.nomClient = localStorage.getItem("nomClient");}
     
   }
 
@@ -35,6 +35,7 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     localStorage.setItem("accessToken", "");
+    localStorage.setItem("nomClient", "");
     console.log("logout");
     window.location.reload();
   }
