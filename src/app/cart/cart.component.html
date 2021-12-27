@@ -4,7 +4,7 @@
         <div class="breadcrumb-contents">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Acceuil</a></li>
+                    <li class="breadcrumb-item"><a routerLink="">Acceuil</a></li>
                     <li class="breadcrumb-item active">Panier</li>
                 </ol>
             </nav>
@@ -37,41 +37,24 @@
                                 </thead>
                                 <tbody>
                                     <!-- Product Row -->
-                                    <tr>
+                                    <tr *ngFor="let livre of panier">
                                         <td class="pro-remove"><a href="#"><i class="far fa-trash-alt"></i></a>
                                         </td>
                                         <td class="pro-thumbnail"><a href="#"><img
-                                                    src="image/products/product-1.jpg" alt="Product"></a></td>
-                                        <td class="pro-title"><a href="#">Rinosin Glasses</a></td>
-                                        <td class="pro-price"><span>395.00 €</span></td>
+                                                    src="{{livre.img}}" alt="Product"></a></td>
+                                        <td class="pro-title"><a href="#">{{livre.nom}}</a></td>
+                                        <td class="pro-price"><span>{{livre.prix}} €</span></td>
                                         <td class="pro-quantity">
                                             <div class="pro-qty">
                                                 <div class="count-input-block">
-                                                    <input type="number" class="form-control text-center"
+                                                    <input type="number" disabled class="form-control text-center"
                                                         value="1">
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="pro-subtotal"><span>395.00€</span></td>
+                                        <td class="pro-subtotal"><span>{{prixDuPanier(panier)}}€</span></td>
                                     </tr>
-                                    <!-- Product Row -->
-                                    <tr>
-                                        <td class="pro-remove"><a href="#"><i class="far fa-trash-alt"></i></a>
-                                        </td>
-                                        <td class="pro-thumbnail"><a href="#"><img
-                                                    src="image/products/product-2.jpg" alt="Product"></a></td>
-                                        <td class="pro-title"><a href="#">Rinosin Glasses</a></td>
-                                        <td class="pro-price"><span>$395.00</span></td>
-                                        <td class="pro-quantity">
-                                            <div class="pro-qty">
-                                                <div class="count-input-block">
-                                                    <input type="number" class="form-control text-center"
-                                                        value="1">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="pro-subtotal"><span>$395.00</span></td>
-                                    </tr>
+
                                     <!-- Discount Row  -->
                                     <!-- <tr>
                                         <td colspan="6" class="actions">
@@ -103,15 +86,15 @@
                     <div class="cart-summary">
                         <div class="cart-summary-wrap">
                             <h4><span>Résumé de votre panier</span></h4>
-                            <p>Sous total <span class="text-primary">1250.00</span></p>
+                            <p>Sous total <span class="text-primary">{{prixDuPanier(panier)}}€</span></p>
                             <p>Frais de livraison <span class="text-primary">00.00€</span></p>
-                            <h2>Total <span class="text-primary">1250.00€</span></h2>
+                            <h2>Total <span class="text-primary">{{prixDuPanier(panier)}}€</span></h2>
                         </div>
                         <div class="cart-summary-button">
                             <div class="update-block text-right">
-                                <input type="submit" class="btn btn-outlined" name="update_cart"
+                                <a routerLink="/checkout"><input type="submit"  class="btn btn-outlined" name="update_cart"
                                     value="Valider mon panier">
-                                
+                                </a>
                             </div>
                         </div>
                     </div>

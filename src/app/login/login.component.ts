@@ -70,7 +70,8 @@ export class LoginComponent implements OnInit {
         'success'
       ).then((result) => {
         if(result) {
-          this.route.navigate(['/']); 
+          // this.route.navigate(['/']);
+          window.location.replace('/');
         }
       })
     }

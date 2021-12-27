@@ -72,23 +72,14 @@
                                         <h2 class="checkout-title">Votre commande</h2>
                                         <h4>Livre <span>Total</span></h4>
                                         <ul>
-                                            <li><span class="left">Cillum dolore tortor nisl X 01</span> <span
-                                                    class="right">25.00€</span></li>
-                                            <li><span class="left">Auctor gravida pellentesque X 02 </span><span
-                                                    class="right">50.00€</span></li>
-                                            <li><span class="left">Condimentum posuere consectetur X 01</span>
-                                                <span class="right">29.00€</span></li>
-                                            <li><span class="left">Habitasse dictumst elementum X 01</span>
-                                                <span class="right">10.00€</span></li>
+                                            <li *ngFor="let livre of panier"><span class="left">{{livre.nom}}</span> <span
+                                                    class="right">{{livre.prix}}€</span></li>
+                                          
                                         </ul>
-                                        <p>Sous Total <span>104.00€</span></p>
+                                        <p>Sous Total <span>{{prixDuPanier(panier)}}€</span></p>
                                         <p>Frais de livraison <span>00.00€</span></p>
-                                        <h4>Total <span>104.00€</span></h4>
-                                        <div class="term-block">
-                                            <input type="checkbox" id="accept_terms2">
-                                            <label for="accept_terms2">J'accepte les condition d'utilisation</label>
-                                        </div>
-                                        <button class="place-order w-100">Commander</button>
+                                        <h4>Total <span>{{prixDuPanier(panier)}}€</span></h4>
+                                        <a routerLink="/order-confirmation"><button class="place-order w-100">Commander</button></a>
                                     </div>
                                 </div>
                             </div>

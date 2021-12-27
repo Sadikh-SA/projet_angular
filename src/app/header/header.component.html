@@ -27,35 +27,38 @@
                 <div class="col-lg-4">
                     <div class="main-navigation flex-lg-right">
                         <div class="cart-widget">
-                            <div class="login-block">
+                            <div class="login-block" *ngIf="accessToken.length<10 || !accessToken.length ">
                                 <a routerLink="auth" class="font-weight-bold">Se connecter</a> <br>
                                 <span>or</span><a routerLink="auth">S'inscrire</a>
+                            </div>
+                            <div class="login-block" *ngIf="accessToken.length>10 ">
+                                <a class="font-weight-bold">Bonjour {{nomClient}}</a> <br>
+                                <a style="cursor: pointer;" (click)="logout()"  >Se déconnecter</a>
                             </div>
                             <div class="cart-block">
                                 <div class="cart-total">
                                     <span class="text-number">
-                                        1
+                                        {{panier.length}}
                                     </span>
                                     <span class="text-item">
                                         Panier
                                     </span>
                                     <span class="price">
-                                        105 €
+                                        {{prixDuPanier(panier)}} €
                                         <i class="fas fa-chevron-down"></i>
                                     </span>
                                 </div>
                                 <div class="cart-dropdown-block">
                                     <div class=" single-cart-block ">
-                                        <div class="cart-product">
+                                        <div *ngFor="let livre of panier" class="cart-product">
                                             <a  class="image">
-                                                <img src="../../assets/image/products/cart-product-1.jpg" alt="">
+                                                <img src="{{livre.img}}" alt="">
                                             </a>
                                             <div class="content">
-                                                <h3 class="title"><a href="product-details.html">Kodak PIXPRO
-                                                        Astro Zoom AZ421 16 MP</a>
+                                                <h3 class="title"><a href="product-details.html">{{livre.nom}}</a>
                                                 </h3>
-                                                <p class="price"><span class="qty">1 ×</span> 105€</p>
-                                                <button class="cross-btn"><i class="fas fa-times"></i></button>
+                                                <p class="price"><span class="qty">1 ×</span> {{livre.prix}}€</p>
+                                                <button (click)="removeFromPanier(livre)" class="cross-btn"><i class="fas fa-times"></i></button>
                                             </div>
                                         </div>
                                     </div>

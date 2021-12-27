@@ -14,7 +14,6 @@ export class AuthenticationService {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json'
      }});
-      console.log("yo",response);
       var code = response.status;
       return code == 201;
     } catch (error) {
@@ -31,11 +30,12 @@ export class AuthenticationService {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json'
      }});
-      console.log("yo",response);
       var code = response.status;
+      console.log("la rep", response);
       if(code == 201) {
         var token = response.data.accessToken;
         localStorage.setItem("accessToken", token);
+        localStorage.setItem("nomClient", response.data.user.nom);
       }
       return token && code == 201;
     } catch (error) {

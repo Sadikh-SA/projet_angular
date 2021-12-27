@@ -14,11 +14,25 @@ export class LivresService {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json'
      }});
-      console.log("yo",response);
     } catch (error) {
       return false;
     }
 
     return response.data.data;
   }
+
+  async getLivre(id:any): Promise<any> {
+    var response;
+    try {
+      response = await axios.get("http://localhost:3030/livres/"+id, {headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+     }});
+    } catch (error) {
+      return false;
+    }
+
+    return response.data;
+  }
+
 }
