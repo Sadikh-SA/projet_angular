@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { DetailComponent } from './dashboard/detail/detail.component';
-import { ListeComponent } from './dashboard/liste/liste.component';
-import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
+import { LoginComponent } from './login/login.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 
 const routes: Routes = [
-  { path: "dashboard", component: DashboardComponent},
-  { path: "liste", component: ListeComponent},
-  { path: "detail", component: DetailComponent},
-  { path: "navbar", component: HeaderComponent}
+  { path: "", component: HomeComponent},
+  { path: "book/:id", component: BookDetailsComponent},
+  { path: "auth", component: LoginComponent},
+  { path: "cart", component: CartComponent},
+  { path: "checkout", component: CheckoutComponent},
+  { path: "order-confirmation", component: OrderConfirmationComponent}
 ];
 
 @NgModule({

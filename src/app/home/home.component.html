@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="col-lg-12">
+        <div class="header-search-block">
+            <input type="text" placeholder="Rechercher un livre" #filtremotcle >
+            <button (click)="rechercher({motclee: filtremotcle.value, categorie: filtrecategorie.value, auteur: filtreauteur.value, annee: filtreannee.value, minPrix: filtreprixmin.value, maxPrix: filtreprixmax.value})">Chercher</button>
+        </div>
+        <div style="display:flex;">
+            <div class="header-search-block col-3">
+                <select #filtrecategorie>
+                    <option value="">Choix catégorie</option>
+                    <option *ngFor="let categorie of listeCategories" value="{{categorie}}">{{categorie}}</option>
+                </select>
+            </div>
+            <div class="header-search-block col-3">
+                <select #filtreauteur>
+                    <option value="">Choix auteur</option>
+                    <option *ngFor="let auteur of listeAuteurs" value="{{auteur}}">{{auteur}}</option>
+                </select>
+            </div>
+            <div class="header-search-block col-2">
+                <select #filtreannee>
+                    <option value="">Choix année</option>
+                    <option *ngFor="let annee of listeAnnees" value="{{annee}}">{{annee}}</option>
+                </select>
+            </div>
+            <div class="header-search-block col-2">
+                <input type="number" placeholder="Prix min" #filtreprixmin>
+            </div>
+            <div class="header-search-block col-2">
+                <input type="number" placeholder="Prix max" #filtreprixmax>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="shop-product-wrap with-pagination row space-db--30 shop-border grid-four">
+        <div *ngFor="let livre of livres" class="col-lg-4 col-sm-6">
+            <div class="product-card">
+                <div class="product-grid-content">
+                    <div class="product-header">
+                        <a class="author">
+                            {{livre.auteur}}
+                        </a>
+                        <h3><a routerLink="book/{{livre._id}}">{{livre.nom}}</a></h3>
+                    </div>
+                    <div class="product-card--body">
+                        <div class="card-image">
+                            <img src="{{livre.img}}" alt="">
+                            <div class="hover-contents">
+                                <a class="hover-image">
+                                   
+                                </a>
+                                <div class="hover-btns">
+                                    <a (click)="addToPanier(livre)" class="single-btn">
+                                        <i class="fas fa-shopping-basket"></i>
+                                    </a>
+                                    <a routerLink="book/{{livre._id}}" data-toggle="modal" data-target=""
+                                        class="single-btn">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-block">
+                            <span class="price">{{livre.prix}}€</span>
+                            <del class="price-old">{{livre.prix+ 10}}€</del>
+                            <!-- <span class="price-discount">20%</span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="row pt--30">
+            <div class="col-md-12">
+                <div class="pagination-block">
+                    <ul class="pagination-btns flex-center">
+                        <!-- <li><a class="single-btn prev-btn ">|<i class="zmdi zmdi-chevron-left"></i> </a></li> -->
+                        <li><a (click)="goToPrevPage()" class="single-btn prev-btn "><i class="zmdi zmdi-chevron-left"></i> </a>
+                        </li>
+
+                        <li *ngFor='let in of counter(npages) ; let i = index' [ngClass]="{'active':(i+1 == page), '': !(i+1 == page) }"><a class="single-btn" (click)="goToPage(i+1)">
+                            {{i+1}}</a>
+                        </li>
+                        <li><a (click)="goToNextPage()" class="single-btn next-btn"><i class="zmdi zmdi-chevron-right"></i></a>
+                        </li>
+                        <!-- <li><a href="" class="single-btn next-btn"><i class="zmdi zmdi-chevron-right"></i>|</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>

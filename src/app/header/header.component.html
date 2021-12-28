@@ -1,66 +1,136 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img style="overflow: hidden; height: 100px; width: 200%;" src="../../assets/Images/logo.png" alt="Logo"></a>
-    
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-4 mb-lg-0" style="margin: auto;">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Accueil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Acheter</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">S'inscrire</a>
-        </li>
-      </ul>
-      <form class="d-flex" style="margin-right: 45px;">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-      <div>
-      <button type="button" class="d-flex btn btn-outline-warning" data-bs-toggle="modals" style="float: left;">
-        <mat-icon>add_shopping_cart</mat-icon>Panier
-      </button>
-      <!-- Button trigger modal -->
-      <button style="float: right; margin-left: 15px;" type="button" class="d-flex btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        <mat-icon>lock</mat-icon> Connexion
-      </button>
-    </div>
-      <!-- Modal -->
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Se Connecter</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form action="">
-                <div class="input-group mb-3">
-                  <div class="input-group-text">
-                    <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-                  </div>
-                  <input type="text" class="form-control" aria-label="Text input with checkbox">
+<div class="site-header d-none d-lg-block">
+    <div class="header-middle pt--10 pb--10">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 ">
+                    <a routerLink="" class="site-brand">
+                        <img src="../../assets/image/logo.png" alt="">
+                    </a>
                 </div>
-                
-                <div class="input-group">
-                  <div class="input-group-text">
-                    <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input">
-                  </div>
-                  <input type="text" class="form-control" aria-label="Text input with radio button">
+                <div class="col-lg-5">
+                    <div class="main-navigation flex-lg-right">
+                        <ul class="main-menu menu-right ">
+                            <li class="menu-item has-children">
+                                <a routerLink="">Acceuil</a>
+                            </li>
+                            <!-- Pages -->
+                            <li class="menu-item has-children">
+                                <a routerLink="/cart">Panier</a>
+                            </li>
+                            <!-- Blog -->
+                            <!-- <li class="menu-item has-children mega-menu">
+                                <a>Blog </a>
+                            </li> -->
+                        </ul>
+                    </div>
                 </div>
-              </form>
+                <div class="col-lg-4">
+                    <div class="main-navigation flex-lg-right">
+                        <div class="cart-widget">
+                            <div class="login-block" *ngIf="accessToken.length<10">
+                                <a routerLink="auth" class="font-weight-bold">Se connecter</a> <br>
+                                <span>or</span><a routerLink="auth">S'inscrire</a>
+                            </div>
+                            <div class="login-block" *ngIf="accessToken.length>10 ">
+                                <a class="font-weight-bold">Bonjour {{nomClient}}</a> <br>
+                                <a style="cursor: pointer;" (click)="logout()"  >Se déconnecter</a>
+                            </div>
+                            <div class="cart-block">
+                                <div class="cart-total">
+                                    <span class="text-number">
+                                        {{panier.length}}
+                                    </span>
+                                    <span class="text-item">
+                                        Panier
+                                    </span>
+                                    <span class="price">
+                                        {{prixDuPanier(panier)}} €
+                                        <i class="fas fa-chevron-down"></i>
+                                    </span>
+                                </div>
+                                <div class="cart-dropdown-block">
+                                    <div class=" single-cart-block ">
+                                        <div *ngFor="let livre of panier" class="cart-product">
+                                            <a  class="image">
+                                                <img src="{{livre.img}}" alt="">
+                                            </a>
+                                            <div class="content">
+                                                <h3 class="title"><a href="product-details.html">{{livre.nom}}</a>
+                                                </h3>
+                                                <p class="price"><span class="qty">1 ×</span> {{livre.prix}}€</p>
+                                                <button (click)="removeFromPanier(livre)" class="cross-btn"><i class="fas fa-times"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" single-cart-block ">
+                                        <div class="btn-block">
+                                            <a routerLink="/cart" class="btn">Voir panier <i
+                                                    class="fas fa-chevron-right"></i></a>
+                                            <a routerLink="/checkout" class="btn btn--primary">Commander<i
+                                                    class="fas fa-chevron-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Valider</button>
-            </div>
-          </div>
         </div>
-      </div>
-      <!-- <mat-icon>add_shopping_cart</mat-icon> -->
-      
     </div>
-  </div>
-</nav>
+    <div class="header-bottom pb--10">
+        <div class="container">
+            <div class="row align-items-center">
+               
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div class="site-mobile-menu">
+    <header class="mobile-header d-block d-lg-none pt--10 pb-md--10">
+        <div class="container">
+            <div class="row align-items-sm-end align-items-center">
+                <div class="col-md-4 col-7">
+                    <a href="index.html" class="site-brand">
+                        <img src="../../assets/image/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-5  order-md-3 text-right">
+                    <div class="mobile-header-btns header-top-widget">
+                        <ul class="header-links">
+                            <li class="sin-link">
+                                <a href="cart.html" class="cart-link link-icon"><i class="ion-bag"></i></a>
+                            </li>
+                            <li class="sin-link">
+                                <a href="javascript:" class="link-icon hamburgur-icon off-canvas-btn"><i
+                                        class="ion-navicon"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--Off Canvas Navigation Start-->
+    <aside class="off-canvas-wrapper">
+        <div class="btn-close-off-canvas">
+            <i class="ion-android-close"></i>
+        </div>
+        <div class="off-canvas-inner">
+            <div class="mobile-navigation">
+                <nav class="off-canvas-nav">
+                    <ul class="mobile-menu main-mobile-menu">
+                        <li class="menu-item-has-children">
+                            <a routerLink="">Acceuil</a>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a routerLink="/cart">Panier</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </aside>
+</div>
