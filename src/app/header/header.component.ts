@@ -9,15 +9,27 @@ import { PartageService } from '../partage.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private partageService:PartageService) {}
+  constructor(private partageService:PartageService) {
+    this.partageService.accessToken.subscribe((accessToken: any) => this.accessToken = accessToken);
+    this.partageService.nomClient.subscribe((nomClient: any) => this.nomClient = nomClient);
+  }
   public panier: any;
   public accessToken: any = "";
   public nomClient: any= "";
+  
   ngOnInit(): void {
     this.partageService.panier.subscribe((panier: any) => this.panier = panier);
-    if(localStorage.getItem("accessToken")!=null && localStorage.getItem("accessToken")!=undefined) {this.accessToken = localStorage.getItem("accessToken");}
-    if(localStorage.getItem("nomClient")!=null && localStorage.getItem("nomClient") !=undefined) { this.nomClient = localStorage.getItem("nomClient");}
+    // if(localStorage.getItem("accessToken")!=null && localStorage.getItem("accessToken")!=undefined) {this.accessToken = localStorage.getItem("accessToken");}
+    // if(localStorage.getItem("nomClient")!=null && localStorage.getItem("nomClient") !=undefined) { this.nomClient = localStorage.getItem("nomClient");}
+    if(localStorage.getItem("accessToken")!=null && localStorage.getItem("accessToken")!=undefined){
+     // this.accessToken = localStorage.getItem("accessToken");
+      this.partageService.setAccessToken(localStorage.getItem("accessToken"));
+    }
+    if(localStorage.getItem("nomClient")!=null && localStorage.getItem("nomClient") !=undefined) {
+      // this.nomClient = localStorage.getItem("nomClient");
+       this.partageService.setNom(localStorage.getItem("nomClient"));
+    }
+
     console.log(this.nomClient,this.accessToken );
   }
 

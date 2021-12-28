@@ -12,8 +12,14 @@ export class OrderConfirmationComponent implements OnInit {
   public panier: any;
   public panierValide: any;
   ngOnInit(): void {
-    this.partageService.panier.subscribe((panier: any) => this.panier = panier)
-    this.panierValide = this.panier;
+    this.partageService.panier.subscribe((panier: any) => this.panier = panier);
+    this.panierValide = JSON.parse(JSON.stringify(this.panier));
+    const temp : any[] = this.panier;
+    // this.partageService.viderPanier();
+    temp.forEach((livre:any, index:number) => {
+      this.partageService.removeFromPanier(livre);
+    });
+    this.partageService.removeTheOnlyLivre();
   }
 
   prixDuPanier(panier: any[]) : any {

@@ -1,7 +1,9 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
 import Swal from 'sweetalert2';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
+import { PartageService } from '../partage.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,12 +14,20 @@ export class LoginComponent implements OnInit {
   @Output() submitted = new EventEmitter<string>();
   nom_complet = "";
   authenticationService : AuthenticationService;
-  
-  constructor(authenticationService : AuthenticationService, private route:Router) {
+ 
+  public action : string = "";
+  constructor(authenticationService : AuthenticationService,
+     private route:Router, private aroute: ActivatedRoute, private partageService:PartageService) {
     this.authenticationService = authenticationService;
+    this.aroute.queryParams.subscribe((params: any) => {
+      this.action = params['action'];
+      console.log("blaaaaaaaaaaaaaa",this.action);
+  });
+  
   }
 
   ngOnInit(): void {
+    //this.action = this.aroute.snapshot.paramMap.get('action');
   }
 
   async register(data: any) {
@@ -71,7 +81,12 @@ export class LoginComponent implements OnInit {
       ).then((result) => {
         if(result) {
           // this.route.navigate(['/']);
-          window.location.replace('/');
+          if(this.action == "validation-panier"){
+            this.route.navigate(['/order-confirmation']);
+          }else {
+          //  window.location.replace('/');
+          this.route.navigate(['/']);
+          }
         }
       })
     }
