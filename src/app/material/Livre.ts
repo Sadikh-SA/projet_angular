@@ -5,5 +5,5 @@ export class Livre {
     description: string| undefined;
     image_url: string| undefined;
     auteur: string| undefined;
-    genre: any;
+    genre: string[] | undefined;
 }

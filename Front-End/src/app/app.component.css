@@ -1,0 +1,18 @@
+.header {
+    margin: 0 auto;
+    margin: 5px;
+}
+#milieu {
+    min-width: 100vw;
+    width: 100%;
+    overflow: hidden;
+}
+#gauche {
+    width: 20%;
+    float: left;
+}
+#droite {
+    width: 79%;
+    float: right;
+    overflow: hidden;
+}

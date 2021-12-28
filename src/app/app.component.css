@@ -16,3 +16,14 @@
     float: right;
     overflow: hidden;
 }
+footer{
+    background: none;
+    outline: inset #f2792a;
+}
+a:link{
+    color: #f2792a;
+}
+
+.copyright{
+    color: #f2792a;
+}

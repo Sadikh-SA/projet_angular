@@ -1,0 +1,6 @@
+.navbar {
+  height: 100px;
+}
+.cart-product .image img {
+  max-height: 110px;
+}

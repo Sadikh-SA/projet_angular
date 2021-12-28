@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 interface Categories {
   id : Number,
@@ -12,7 +13,18 @@ interface Categories {
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  validationForm: FormGroup;
+
+  constructor(public fb: FormBuilder) {
+    this.validationForm = fb.group({
+      emailFormEx: [null, [Validators.required, Validators.email]],
+      passwordFormEx: [null, Validators.required],
+    });
+  }
+
+  get emailFormEx() { return this.validationForm.get('emailFormEx'); }
+  get passwordFormEx() { return this.validationForm.get('passwordFormEx'); }
+  
   ngOnInit(): void {
   }
 

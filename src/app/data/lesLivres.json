@@ -15,7 +15,7 @@
         "nom" : "One Piece",
         "prix": 0,
         "description": "",
-        "image_url": "../../assets/Images/one_piece.jpeg",
+        "image_url": "one_piece.jpeg",
         "auteur": "",
         "genre": [
             "action","aventure", "drame", "comédie", "romance"
@@ -26,7 +26,7 @@
         "nom" : "Dragon Ball Z",
         "prix": 0,
         "description": "",
-        "image_url": "../../assets/Images/dbz.jpeg",
+        "image_url": "dbz.jpeg",
         "auteur": "",
         "genre": [
             "action","aventure", "drame", "comédie", "romance"
@@ -37,7 +37,7 @@
         "nom" : "Demon Sleayer",
         "prix": 0,
         "description": "",
-        "image_url": "../../assets/Images/demon_sleayer.jpeg",
+        "image_url": "demon_sleayer.jpeg",
         "auteur": "",
         "genre": [
             "action","aventure", "drame", "comédie", "romance"
@@ -48,7 +48,7 @@
         "nom" : "Tokyo revengers",
         "prix": 0,
         "description": "",
-        "image_url": "../../assets/Images/takimitsi.jpeg",
+        "image_url": "takimitsi.jpeg",
         "auteur": "",
         "genre": [
             "action","aventure", "drame", "comédie", "romance"
@@ -59,7 +59,7 @@
         "nom" : "My Hero Academia",
         "prix": 0,
         "description": "",
-        "image_url": "../../assets/Images/mha.jpeg",
+        "image_url": "mha.jpeg",
         "auteur": "",
         "genre": [
             "action","aventure", "drame", "comédie", "romance"
@@ -70,7 +70,7 @@
         "nom" : "Attaques des Titans",
         "prix": 0,
         "description": "",
-        "image_url": "../../assets/Images/titants.jpeg",
+        "image_url": "titants.jpeg",
         "auteur": "",
         "genre": [
             "action","aventure", "drame", "comédie", "romance"
@@ -81,7 +81,7 @@
         "nom" : "Fairy Tail",
         "prix": 0,
         "description": "",
-        "image_url": "../../assets/Images/fairfail.jpeg",
+        "image_url": "fairfail.jpeg",
         "auteur": "",
         "genre": [
             "action","aventure", "drame", "comédie", "romance"
@@ -92,7 +92,7 @@
         "nom" : "Bleach",
         "prix": 0,
         "description": "",
-        "image_url": "../../assets/Images/bleach.jpeg",
+        "image_url": "bleach.jpeg",
         "auteur": "",
         "genre": [
             "action","aventure", "drame", "comédie", "romance"
