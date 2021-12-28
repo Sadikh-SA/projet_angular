@@ -37,6 +37,7 @@ export class AuthenticationService {
         var token = response.data.accessToken;
         localStorage.setItem("accessToken", token);
         localStorage.setItem("nomClient", response.data.user.nom);
+        localStorage.setItem("userId", response.data.user._id);
         this.partageService.setAccessToken(token);
         this.partageService.setNom(response.data.user.nom);
       }
