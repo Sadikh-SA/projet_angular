@@ -55,8 +55,13 @@ exports.Commandes = class Commandes extends Service {
   async get(id) {
       console.log(id);
       var commande = await super.get(id);
-      var detailscommande = await this.app.service('commande-details').find({query: {commande: commande._id}});
-      commande.livres = detailscommande.data;
+      var detailscommande = await this.app.service('commande-details').find({query: {commande: commande._id, $populate: 'livre'}});
+      let livres = [];
+      for(let j = 0; j< detailscommande.data.length;j++) {
+       let temp = await this.app.service('livres').get(detailscommande.data[j].livre);
+       livres.push(temp);
+      }
+      commande.livres = livres;
       return commande;
   }
 
