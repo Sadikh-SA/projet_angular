@@ -6,6 +6,18 @@ import axios from 'axios';
 export class LivresService {
 
   constructor() { }
+
+  shuffle(array: any[]) {
+    let currentIndex = array.length,  randomIndex;
+  while (currentIndex != 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+       [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
+  }
   
   async getLivres(): Promise<any> {
     var response;
@@ -18,7 +30,7 @@ export class LivresService {
       return false;
     }
 
-    return response.data.data;
+    return this.shuffle(response.data.data);
   }
 
   async getLivre(id:any): Promise<any> {
