@@ -35,7 +35,8 @@
                                 <tbody>
                                     <!-- Product Row -->
                                     <tr *ngFor="let commande of commandes">
-                                        <td class="pro-remove"><a href="#"><i class="far fa-trash-alt"></i></a>
+                                        <td class="pro-remove">
+                                            <!-- <a href="#"><i class="far fa-trash-alt"></i></a> -->
                                         </td>
                                         <td class="pro-title"><a href="#">{{commande._id}}</a></td>
                                         <td class="pro-price"><span>{{commande.prix}} €</span></td> 
@@ -79,9 +80,9 @@
                         </div>
                         <div class="cart-summary-button">
                             <div class="update-block text-right">
-                                <a routerLink="/checkout"><input type="submit"  class="btn btn-outlined" name="update_cart"
+                                <!-- <a routerLink="/checkout"><input type="submit"  class="btn btn-outlined" name="update_cart"
                                     value="Valider mon panier">
-                                </a>
+                                </a> -->
                             </div>
                         </div>
                     </div>

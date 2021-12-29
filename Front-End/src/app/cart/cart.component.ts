@@ -20,4 +20,16 @@ export class CartComponent implements OnInit {
     });
     return prix;
   }
+
+  viderPanier() {
+    const temp : any[] = this.panier;
+    temp.forEach((livre:any, index:number) => {
+      this.partageService.removeFromPanier(livre);
+    });
+    this.partageService.removeTheOnlyLivre();
+  }
+  
+  removeFromPanier(livre: any) {
+    this.partageService.removeFromPanier(livre);
+  }
 }

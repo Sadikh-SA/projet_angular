@@ -41,7 +41,7 @@ export class CommandeService {
   async getCommandes(): Promise<any> {
     var response:any;
     try {
-      response = await axios.get("http://localhost:3030/commandes/?user"+localStorage.getItem("userId"), {headers: {
+      response = await axios.get("http://localhost:3030/commandes/?user="+localStorage.getItem("userId"), {headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`

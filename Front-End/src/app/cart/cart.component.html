@@ -38,7 +38,7 @@
                                 <tbody>
                                     <!-- Product Row -->
                                     <tr *ngFor="let livre of panier">
-                                        <td class="pro-remove"><a href="#"><i class="far fa-trash-alt"></i></a>
+                                        <td class="pro-remove"><a (click)="removeFromPanier(livre)" href="#"><i class="far fa-trash-alt"></i></a>
                                         </td>
                                         <td class="pro-thumbnail"><a href="#"><img
                                                     src="{{livre.img}}" alt="Product"></a></td>
@@ -91,11 +91,17 @@
                             <h2>Total <span class="text-primary">{{prixDuPanier(panier)}}€</span></h2>
                         </div>
                         <div class="cart-summary-button">
+                            <div class="update-block text-left">
+                                <a (click)="viderPanier()"><input type="submit"  class="btn btn-outlined" name="update_cart"
+                                    value="Vider mon panier">
+                                </a>
+                            </div>
                             <div class="update-block text-right">
                                 <a routerLink="/checkout"><input type="submit"  class="btn btn-outlined" name="update_cart"
                                     value="Valider mon panier">
                                 </a>
                             </div>
+                           
                         </div>
                     </div>
                 </div>
