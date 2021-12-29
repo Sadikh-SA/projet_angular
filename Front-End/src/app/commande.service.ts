@@ -24,7 +24,7 @@ export class CommandeService {
     }
   }
 
-  async getCommande(id: string): Promise<any> {
+  async getCommande(id: any): Promise<any> {
     var response:any;
     try {
       response = await axios.get("http://localhost:3030/commandes/"+id, {headers: {

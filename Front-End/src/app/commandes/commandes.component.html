@@ -30,6 +30,7 @@
                                         <th class="pro-remove"></th>
                                         <th class="pro-title">Numéro Commandes</th>
                                         <th class="pro-price">Prix</th>
+                                        <th class="pro-price">Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -38,9 +39,9 @@
                                         <td class="pro-remove">
                                             <!-- <a href="#"><i class="far fa-trash-alt"></i></a> -->
                                         </td>
-                                        <td class="pro-title"><a href="#">{{commande._id}}</a></td>
+                                        <td class="pro-title"><a routerLink="/detailscommande/{{commande._id}}">{{commande._id}}</a></td>
                                         <td class="pro-price"><span>{{commande.prix}} €</span></td> 
-                                        <!-- <td class="pro-subtotal"><span>{{prixDuPanier(panier)}}€</span></td> -->
+                                        <td class="pro-subtotal"><span>{{formaterDate(commande.createdAt)}}</span></td>
                                     </tr>
 
                                     <!-- Discount Row  -->

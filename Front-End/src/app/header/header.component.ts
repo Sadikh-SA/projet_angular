@@ -45,6 +45,14 @@ export class HeaderComponent implements OnInit {
     this.partageService.removeFromPanier(livre);
   }
 
+  reformaterNom(nomClient: any) { // Mettre chaque premiere lettre du nom en majuscule
+    var splitStr = nomClient.toLowerCase().split(' ');
+    for (var i = 0; i < splitStr.length; i++) {
+        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+    }
+    return splitStr.join(' '); 
+ }
+
   logout() {
     localStorage.setItem("accessToken", "");
     localStorage.setItem("nomClient", "");

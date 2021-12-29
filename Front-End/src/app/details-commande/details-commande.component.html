@@ -1,0 +1,51 @@
+<section class="breadcrumb-section">
+    <h2 class="sr-only">Site Breadcrumb</h2>
+    <div class="container">
+        <div class="breadcrumb-contents">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="">Acceuil</a></li>
+                    <li class="breadcrumb-item active">Commande terminée</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<!-- order complete Page Start -->
+<section class="order-complete inner-page-sec-padding-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="order-table-title">Détails de la commande</h3>
+                <div class="table-responsive">
+                    <table class="table order-details-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let l of livres">
+                                <td>{{l.nom}} <strong>× 1</strong></td>
+                                <td><span>{{l.prix}}€</span></td>
+                            </tr>
+                           
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Sous total:</th>
+                                <td><span>{{prixDuPanier(livres)}}€</span></td>
+                            </tr>
+                            <tr>
+                                <th>Total:</th>
+                                <td><span>{{prixDuPanier(livres)}}€</span></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

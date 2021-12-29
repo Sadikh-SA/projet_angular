@@ -35,7 +35,7 @@
                                 <span>or</span><a routerLink="auth">S'inscrire</a>
                             </div>
                             <div class="login-block" *ngIf="accessToken.length>10 ">
-                                <a class="font-weight-bold">Bonjour {{nomClient}}</a> <br>
+                                <a class="font-weight-bold">Bonjour {{reformaterNom(nomClient)}}</a> <br>
                                 <a style="cursor: pointer;" (click)="logout()"  >Se déconnecter</a>
                             </div>
                             <div class="cart-block">
