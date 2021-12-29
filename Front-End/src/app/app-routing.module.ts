@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { CommandesComponent } from './commandes/commandes.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: "auth", component: LoginComponent},
   { path: "cart", component: CartComponent},
   { path: "checkout", component: CheckoutComponent},
-  { path: "order-confirmation", component: OrderConfirmationComponent}
+  { path: "order-confirmation", component: OrderConfirmationComponent},
+  { path: "commande", component: CommandesComponent}
 ];
 
 @NgModule({

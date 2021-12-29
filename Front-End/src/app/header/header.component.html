@@ -13,6 +13,9 @@
                             <li class="menu-item has-children">
                                 <a routerLink="">Acceuil</a>
                             </li>
+                            <li class="menu-item has-children" *ngIf="nomClient!=''">
+                                <a routerLink="/commande">Commande</a>
+                            </li>
                             <!-- Pages -->
                             <li class="menu-item has-children">
                                 <a routerLink="/cart">Panier</a>

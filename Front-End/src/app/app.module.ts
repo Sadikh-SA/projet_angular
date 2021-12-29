@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { CommandesComponent } from './commandes/commandes.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { OrderConfirmationComponent } from './order-confirmation/order-confirmat
     CartComponent,
     CheckoutComponent,
     OrderConfirmationComponent,
+    CommandesComponent,
   ],
   imports: [
     BrowserModule,
