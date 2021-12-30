@@ -9,20 +9,20 @@ import { PartageService } from '../Services/partage.service';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor(private partageService:PartageService, private route:Router, private commandeService: CommandeService) {}
+  constructor(public partageService:PartageService, private route:Router, private commandeService: CommandeService) {}
   public panier: any;
   public commandeEnvoye: boolean = false;
   ngOnInit(): void {
     this.partageService.panier.subscribe((panier: any) => this.panier = panier)
   }
 
-  prixDuPanier(panier: any[]) : any {
-    var prix = 0;
-    panier.forEach(livre => {
-      prix += livre.prix;
-    });
-    return prix;
-  }
+  // prixDuPanier(panier: any[]) : any {
+  //   var prix = 0;
+  //   panier.forEach(livre => {
+  //     prix += livre.prix;
+  //   });
+  //   return prix;
+  // }
 
   async validerPanier() {
     if(localStorage.getItem('accessToken') == null || localStorage.getItem('accessToken') == undefined || localStorage.getItem('accessToken') == ""){

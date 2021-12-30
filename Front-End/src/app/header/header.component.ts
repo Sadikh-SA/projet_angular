@@ -9,7 +9,7 @@ import { PartageService } from '../Services/partage.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  constructor(private partageService:PartageService) {
+  constructor(public partageService:PartageService) {
     this.partageService.accessToken.subscribe((accessToken: any) => this.accessToken = accessToken);
     this.partageService.nomClient.subscribe((nomClient: any) => this.nomClient = nomClient);
   }
@@ -33,13 +33,13 @@ export class HeaderComponent implements OnInit {
     console.log(this.nomClient,this.accessToken );
   }
 
-  prixDuPanier(panier: any[]) : any {
-    var prix = 0;
-    panier.forEach(livre => {
-      prix += livre.prix;
-    });
-    return prix;
-  }
+  // prixDuPanier(panier: any[]) : any {
+  //   var prix = 0;
+  //   panier.forEach(livre => {
+  //     prix += livre.prix;
+  //   });
+  //   return prix;
+  // }
   
   removeFromPanier(livre: any) {
     this.partageService.removeFromPanier(livre);

@@ -8,7 +8,7 @@ import { PartageService } from '../Services/partage.service';
 })
 export class OrderConfirmationComponent implements OnInit {
 
-  constructor(private partageService:PartageService) {}
+  constructor(public partageService:PartageService) {}
   public panier: any;
   public panierValide: any;
   ngOnInit(): void {
@@ -22,13 +22,13 @@ export class OrderConfirmationComponent implements OnInit {
     this.partageService.removeTheOnlyLivre();
   }
 
-  prixDuPanier(panier: any[]) : any {
-    var prix = 0;
-    panier.forEach(livre => {
-      prix += livre.prix;
-    });
-    return prix;
-  }
+  // prixDuPanier(panier: any[]) : any {
+  //   var prix = 0;
+  //   panier.forEach(livre => {
+  //     prix += livre.prix;
+  //   });
+  //   return prix;
+  // }
 
   getTodayDate() {
     return new Date().toLocaleDateString('fr-FR');

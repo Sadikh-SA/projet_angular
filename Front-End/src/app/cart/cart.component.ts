@@ -10,7 +10,7 @@ export class CartComponent implements OnInit {
 
   public panier: Livre[];
 
-  constructor(private partageService:PartageService) {
+  constructor(public partageService:PartageService) {
     this.panier = [new Livre()];
   }
   
@@ -21,13 +21,6 @@ export class CartComponent implements OnInit {
     })
   }
 
-  prixDuPanier(panier: Livre[]) : number {
-    var prix = 0;
-    panier.forEach(livre => {
-      prix += livre.prix;
-    });
-    return prix;
-  }
 
   viderPanier() {
     const temp : any[] = this.panier;

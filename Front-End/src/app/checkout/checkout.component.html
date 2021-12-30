@@ -83,9 +83,9 @@
                                                     class="right">{{livre.prix}}€</span></li>
                                           
                                         </ul>
-                                        <p>Sous Total <span>{{prixDuPanier(panier)}}€</span></p>
+                                        <p>Sous Total <span>{{partageService.prixDuPanier(panier)}}€</span></p>
                                         <p>Frais de livraison <span>00.00€</span></p>
-                                        <h4>Total <span>{{prixDuPanier(panier)}}€</span></h4>
+                                        <h4>Total <span>{{partageService.prixDuPanier(panier)}}€</span></h4>
                                         <a (click)="validerPanier()"><button class="place-order w-100">Commander</button></a>
                                     </div>
                                 </div>

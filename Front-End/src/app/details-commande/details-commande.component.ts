@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Commande } from '../models/Commande';
 import { Livre } from '../models/Livre';
 import { CommandeService } from '../Services/commande.service';
+import { PartageService } from '../Services/partage.service';
 @Component({
   selector: 'app-details-commande',
   templateUrl: './details-commande.component.html',
@@ -11,7 +12,7 @@ import { CommandeService } from '../Services/commande.service';
 export class DetailsCommandeComponent implements OnInit {
   public commande : Commande;
   public livres : Livre[] = [];
-  constructor(private comandeService: CommandeService, private route:ActivatedRoute) {
+  constructor(private comandeService: CommandeService, private route:ActivatedRoute, public partageService:PartageService) {
     this.commande = new Commande();
    }
 
@@ -21,12 +22,12 @@ export class DetailsCommandeComponent implements OnInit {
     console.log(this.livres)
   }
 
-  prixDuPanier(panier: any[]) : any {
-    var prix = 0;
-    panier.forEach(livre => {
-      prix += livre.prix;
-    });
-    return prix;
-  }
+  // prixDuPanier(panier: any[]) : any {
+  //   var prix = 0;
+  //   panier.forEach(livre => {
+  //     prix += livre.prix;
+  //   });
+  //   return prix;
+  // }
 
 }

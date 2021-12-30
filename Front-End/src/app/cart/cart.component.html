@@ -52,7 +52,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="pro-subtotal"><span>{{prixDuPanier(panier)}}€</span></td>
+                                        <td class="pro-subtotal"><span>{{livre.prix}}€</span></td>
                                     </tr>
 
                                     <!-- Discount Row  -->
@@ -86,9 +86,9 @@
                     <div class="cart-summary">
                         <div class="cart-summary-wrap">
                             <h4><span>Résumé de votre panier</span></h4>
-                            <p>Sous total <span class="text-primary">{{prixDuPanier(panier)}}€</span></p>
+                            <p>Sous total <span class="text-primary">{{partageService.prixDuPanier(panier)}}€</span></p>
                             <p>Frais de livraison <span class="text-primary">00.00€</span></p>
-                            <h2>Total <span class="text-primary">{{prixDuPanier(panier)}}€</span></h2>
+                            <h2>Total <span class="text-primary">{{partageService.prixDuPanier(panier)}}€</span></h2>
                         </div>
                         <div class="cart-summary-button">
                             <div class="update-block text-left">

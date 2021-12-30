@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, never } from 'rxjs';
+import { Livre } from '../models/Livre';
 
 @Injectable({
   providedIn: 'root'
@@ -57,6 +58,14 @@ export class PartageService {
     this.nomClient.next(nom);
   }
 
+
+  prixDuPanier(panier: Livre[]) : number {
+    var prix = 0;
+    panier.forEach(livre => {
+      prix += livre.prix;
+    });
+    return prix;
+  }
 
 
 }

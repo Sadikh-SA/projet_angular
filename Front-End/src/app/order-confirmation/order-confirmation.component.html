@@ -24,7 +24,7 @@
                 <ul class="order-details-list">
                     <li>Numéro de la commande: <strong>{{getRandomInt(1542542)}}</strong></li>
                     <li>Date: <strong> {{getTodayDate()}}</strong></li>
-                    <li>Total: <strong>{{prixDuPanier(panierValide)}}€</strong></li>
+                    <li>Total: <strong>{{partageService.prixDuPanier(panierValide)}}€</strong></li>
                 </ul>
                 <h3 class="order-table-title">Détails de la commande</h3>
                 <div class="table-responsive">
@@ -45,11 +45,11 @@
                         <tfoot>
                             <tr>
                                 <th>Sous total:</th>
-                                <td><span>{{prixDuPanier(panierValide)}}€</span></td>
+                                <td><span>{{partageService.prixDuPanier(panierValide)}}€</span></td>
                             </tr>
                             <tr>
                                 <th>Total:</th>
-                                <td><span>{{prixDuPanier(panierValide)}}€</span></td>
+                                <td><span>{{partageService.prixDuPanier(panierValide)}}€</span></td>
                             </tr>
                         </tfoot>
                     </table>
