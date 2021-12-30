@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PartageService } from '../partage.service';
+import { Livre } from '../models/Livre';
+import { PartageService } from '../Services/partage.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -7,13 +8,20 @@ import { PartageService } from '../partage.service';
 })
 export class CartComponent implements OnInit {
 
-  constructor(private partageService:PartageService) {}
-  public panier: any;
+  public panier: Livre[];
+
+  constructor(private partageService:PartageService) {
+    this.panier = [new Livre()];
+  }
+  
   ngOnInit(): void {
-    this.partageService.panier.subscribe((panier: any) => this.panier = panier)
+    this.partageService.panier.subscribe(panier => {
+      this.panier = panier;
+      console.log("panier", panier);
+    })
   }
 
-  prixDuPanier(panier: any[]) : any {
+  prixDuPanier(panier: Livre[]) : number {
     var prix = 0;
     panier.forEach(livre => {
       prix += livre.prix;
@@ -23,7 +31,7 @@ export class CartComponent implements OnInit {
 
   viderPanier() {
     const temp : any[] = this.panier;
-    temp.forEach((livre:any, index:number) => {
+    temp.forEach((livre:Livre, index:number) => {
       this.partageService.removeFromPanier(livre);
     });
     this.partageService.removeTheOnlyLivre();

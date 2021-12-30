@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PartageService } from '../partage.service';
-import { CommandeService } from '../commande.service';
 import {Router} from '@angular/router';
+import { CommandeService } from '../Services/commande.service';
+import { PartageService } from '../Services/partage.service';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',

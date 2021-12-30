@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { AuthenticationService } from '../authentication.service';
 import Swal from 'sweetalert2';
 import {Router, ActivatedRoute} from '@angular/router';
-import { PartageService } from '../partage.service';
+import { AuthenticationService } from '../Services/authentication.service';
+import { PartageService } from '../Services/partage.service';
 
 @Component({
   selector: 'app-login',

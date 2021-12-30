@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { data } from 'jquery';
-import { CommandeService } from '../commande.service';
+import { Commande } from '../models/Commande';
+import { CommandeService } from '../Services/commande.service';
 
 @Component({
   selector: 'app-commandes',
@@ -9,16 +10,17 @@ import { CommandeService } from '../commande.service';
 })
 export class CommandesComponent implements OnInit {
 
-  constructor( private commandeService:CommandeService) { }
-  public commandes : any;
+  public commandes : Commande[];
 
-  ngOnInit(): void {
-    this.commandeService.getCommandes().then(data => {
-      this.commandes=data,
-      console.log(this.commandes);
-      
-    }
-    );
+  constructor( private commandeService:CommandeService) { 
+    this.commandes = [new Commande()];
+  }
+
+  async ngOnInit(): Promise<void> {
+    this.commandes = await this.commandeService.getCommandes().then(data => { return data});
+    console.log('zertdfg',this.commandes);
+    this.commandes = this.commandes.filter(res => res.user === localStorage.getItem('userId'));
+    console.log("new commandes",this.commandes);
     
   }
   formaterDate(date:any) {

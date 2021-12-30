@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import $ from 'jquery';
 import {MatIconModule} from '@angular/material/icon';
 import { MatSort } from '@angular/material/sort';
-import { PartageService } from '../partage.service';
+import { PartageService } from '../Services/partage.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

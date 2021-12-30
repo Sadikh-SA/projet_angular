@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { LivresService } from '../livres.service';
 import {Router} from '@angular/router';
-import { PartageService } from '../partage.service';
+import { Livre } from '../models/Livre';
+import { LivresService } from '../Services/livres.service';
+import { PartageService } from '../Services/partage.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public livres: any[];
-  public Alllivres: any[];
-  public AlllivresFiltre: any[];
+  public livres: Livre[];
+  public Alllivres: Livre[];
+  public AlllivresFiltre: Livre[];
   public npages: number;
   public nItemP = 8;
   public page = 1;
   public listeAuteurs : any[];
   public listeAnnees : any[];
   public listeCategories : any[];
-  public panier : any[];
+  public panier : Livre[];
   livresService = new LivresService;
   constructor(livresService : LivresService, private route:Router, private partageService:PartageService) {
     this.livres = [];
@@ -27,16 +28,15 @@ export class HomeComponent implements OnInit {
     this.listeAuteurs = [];
     this.listeAnnees = [];
     this.listeCategories = [];
-
+    this.panier = [];
     
     this.getAllLivres() ;
 
   }
 
-  addToPanier(livre:any) {
+  addToPanier(livre:Livre) {
     this.panier.push(livre);
     this.partageService.addTopanier(this.panier);
-    console.log(this.partageService.panier);
 
   }
 
@@ -46,12 +46,12 @@ export class HomeComponent implements OnInit {
 
   rechercher(data: any) {
     this.livres = this.Alllivres;
-    this.livres = this.livres.filter((livre) => livre.nom.toLocaleLowerCase().includes(data.motclee.toLocaleLowerCase()));
+    this.livres = this.livres.filter((livre) => livre.nom?.toLocaleLowerCase().includes(data.motclee.toLocaleLowerCase()));
     if(data.categorie !=="") {
-      this.livres = this.livres.filter((livre) => livre.categorie.toLocaleLowerCase().includes(data.categorie.toLocaleLowerCase()));
+      this.livres = this.livres.filter((livre) => livre.categorie?.toLocaleLowerCase().includes(data.categorie.toLocaleLowerCase()));
     }
     if(data.auteur !=="") {
-      this.livres = this.livres.filter((livre) => livre.auteur.toLocaleLowerCase() === data.auteur.toLocaleLowerCase());
+      this.livres = this.livres.filter((livre) => livre.auteur?.toLocaleLowerCase() === data.auteur.toLocaleLowerCase());
     }
     if(data.annee !=="") {
       this.livres = this.livres.filter((livre) =>  livre.annee == data.annee);
@@ -67,7 +67,6 @@ export class HomeComponent implements OnInit {
     if(Math.trunc(this.npages) < this.npages) {this.npages = Math.trunc(this.npages) + 1;}
     this.AlllivresFiltre = this.livres;
     this.livres = this.AlllivresFiltre.slice((this.page-1)*this.nItemP, (this.page)*this.nItemP);
-    console.log("srx", this.livres);
     
   }
 
@@ -81,7 +80,6 @@ export class HomeComponent implements OnInit {
     this.listeAnnees =  (this.Alllivres.map(item => item.annee).filter((value, index, self) => self.indexOf(value) === index)).sort()
     this.listeAuteurs =  this.Alllivres.map(item => item.auteur).filter((value, index, self) => self.indexOf(value) === index)
     this.listeCategories =  this.Alllivres.map(item => item.categorie).filter((value, index, self) => self.indexOf(value) === index)
-    console.log('lol',this.listeAnnees);
   }
 
   async goToPage(n: number) {
@@ -100,7 +98,6 @@ export class HomeComponent implements OnInit {
   }
 
   counter(i: number) {
-    console.log("Voici le i", i)
     return new Array(i);
 }
 

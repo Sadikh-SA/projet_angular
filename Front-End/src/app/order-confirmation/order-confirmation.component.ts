@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PartageService } from '../partage.service';
+import { PartageService } from '../Services/partage.service';
 
 @Component({
   selector: 'app-order-confirmation',

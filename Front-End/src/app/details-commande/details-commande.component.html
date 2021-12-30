@@ -22,12 +22,14 @@
                     <table class="table order-details-table">
                         <thead>
                             <tr>
+                                <th>Images</th>
                                 <th>Product</th>
                                 <th>Total</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let l of livres">
+                                <td><img src="{{l.img}}" alt="" srcset="" style="height: 80px;"></td>
                                 <td>{{l.nom}} <strong>× 1</strong></td>
                                 <td><span>{{l.prix}}€</span></td>
                             </tr>
