@@ -1,38 +1,36 @@
 # ProjetAngular
+Description : Site de vente de livres.
 
-Description
+Pour récupérer le projet lancer la commande:
+git clone https://github.com/Sadikh-SA/projet_angular.git
 
 ## Back-End
+Description : le dossier Back-End du projet contient la base de données (MongoDB) et l’API.
 
-Getting up and running is as easy as 1, 2, 3.
+Déplacez-vous dans le dossier `Back-End/`
+cd chemin/Back-End
 
-1. Make sure you have [NodeJS](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
-2. Install your dependencies
+Pour installer les dépendances et lancer le serveur, saisissez les commandes suivantes :
 
-    ```
-    cd path/to/projet-web-api
-    npm install
-    ```
-
-3. Start your app
-
-    ```
-    npm start or npm run dev
-    ```
+npm install (Pour installer les dépendances)
+npm start (Pour démarrer l’API)
 
 ## Front-End
+Description : Vue globale des fonctionnalités
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Déplacez-vous dans le dossier `Front-End/`
+cd chemin/Front-End
 
-### Code scaffolding
+Pour compiler, installer les dépendances et exécuter l’application lancé les commandes suivantes :
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+npm install  (Pour installer les dépendances) 
 
-### Build
+ng serve –o (Pour lancé le serveur et ouvrir l’application dans le navigateur)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Dans le cas où le serveur ne se lance pas,
+Faite un coup de : rm -rf node_modules
+Et relancer les commandes précédentes.
 
-### Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Tests unitaire avec Karma
+lancer la commande: ng test puis visualiser par la console ou le navigateur.
 
