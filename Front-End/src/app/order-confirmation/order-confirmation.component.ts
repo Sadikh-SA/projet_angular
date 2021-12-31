@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PartageService } from '../Services/partage.service';
-
+import { ActivatedRoute } from '@angular/router'
 @Component({
   selector: 'app-order-confirmation',
   templateUrl: './order-confirmation.component.html',
@@ -8,7 +8,7 @@ import { PartageService } from '../Services/partage.service';
 })
 export class OrderConfirmationComponent implements OnInit {
 
-  constructor(public partageService:PartageService) {}
+  constructor(public partageService:PartageService,  private route:ActivatedRoute) {}
   public panier: any;
   public panierValide: any;
   ngOnInit(): void {
@@ -20,6 +20,9 @@ export class OrderConfirmationComponent implements OnInit {
       this.partageService.removeFromPanier(livre);
     });
     this.partageService.removeTheOnlyLivre();
+
+    
+
   }
 
   // prixDuPanier(panier: any[]) : any {
@@ -34,8 +37,14 @@ export class OrderConfirmationComponent implements OnInit {
     return new Date().toLocaleDateString('fr-FR');
   }
 
-  getRandomInt(max: number) {
-    return Math.floor(Math.random() * max);
+  getCommandeId() {
+    let p:any;
+    this.route.queryParamMap
+  .subscribe((params:any) => {
+        p = { ...params.keys, ...params };
+      }
+    );
+    return p.params.id;
   }
 
 }

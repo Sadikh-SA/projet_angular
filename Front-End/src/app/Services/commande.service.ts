@@ -4,7 +4,7 @@ import axios from 'axios';
   providedIn: 'root'
 })
 export class CommandeService {
-
+  public nouvelleCommandeId:string="";
   constructor() { }
   async ajouterCommande(livres: any[]): Promise<any> {
     var response;
@@ -18,6 +18,7 @@ export class CommandeService {
      }});
      console.log("La reponse", response);
       var code = response.status;
+      this.nouvelleCommandeId = response.data._id;
       return code == 201;
     } catch (error) {
       return false;

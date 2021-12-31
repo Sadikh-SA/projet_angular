@@ -24,13 +24,19 @@ export class CheckoutComponent implements OnInit {
   //   return prix;
   // }
 
-  async validerPanier() {
-    if(localStorage.getItem('accessToken') == null || localStorage.getItem('accessToken') == undefined || localStorage.getItem('accessToken') == ""){
-      this.route.navigate(['/auth'], { queryParams: { action: 'validation-panier' } });
-    }else{
-      this.commandeEnvoye = await this.commandeService.ajouterCommande(this.panier);
-      if(this.commandeEnvoye){
-        this.route.navigate(['/order-confirmation']);
+  verifierTousLesChampsObligatoire(data:any): Boolean {
+    return true;
+  }
+
+  async validerPanier(data:any) {
+    if(this.verifierTousLesChampsObligatoire(data)) {
+      if(localStorage.getItem('accessToken') == null || localStorage.getItem('accessToken') == undefined || localStorage.getItem('accessToken') == ""){
+        this.route.navigate(['/auth'], { queryParams: { action: 'validation-panier' } });
+      }else{
+        this.commandeEnvoye = await this.commandeService.ajouterCommande(this.panier);
+        if(this.commandeEnvoye){
+          this.route.navigate(['/order-confirmation'],{queryParams: { id: this.commandeService.nouvelleCommandeId}});
+        }
       }
     }
   }
