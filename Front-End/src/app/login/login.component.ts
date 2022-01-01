@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService = authenticationService;
     this.aroute.queryParams.subscribe((params: any) => {
       this.action = params['action'];
-      console.log("blaaaaaaaaaaaaaa",this.action);
+      //console.log("blaaaaaaaaaaaaaa",this.action);
   });
   
   }
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   async register(data: any) {
-    console.log(data);
+    //console.log(data);
     var response = "";
     if(data.password1 !== data.password2) {
       Swal.fire(
@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
   }
 
   async login(data: any) {
-    console.log(data);
+    //console.log(data);
     var response = await this.authenticationService.login(data);
     if(!response) {
       Swal.fire(

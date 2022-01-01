@@ -7,7 +7,7 @@ import { Livre } from '../models/Livre';
 })
 export class ServiceService {
 
-  public livres:Livre[] = lesLivres;
+  // public livres:Livre[] = lesLivres;
 
   constructor() { }
 }

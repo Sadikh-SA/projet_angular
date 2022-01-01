@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
        this.partageService.setNom(localStorage.getItem("nomClient"));
     }
 
-    console.log(this.nomClient,this.accessToken );
+    //console.log(this.nomClient,this.accessToken );
   }
 
   // prixDuPanier(panier: any[]) : any {
@@ -56,7 +56,7 @@ export class HeaderComponent implements OnInit {
   logout() {
     localStorage.setItem("accessToken", "");
     localStorage.setItem("nomClient", "");
-    console.log("logout");
+    //console.log("logout");
     window.location.reload();
   }
 }

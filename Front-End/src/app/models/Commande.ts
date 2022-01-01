@@ -1,5 +1,5 @@
 export class Commande {
-    _id: number | undefined;
+    _id: string | undefined;
     __v: number | undefined;
     user: string| undefined;
     updatedAt: Date | undefined

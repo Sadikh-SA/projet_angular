@@ -17,7 +17,7 @@ export class CommandeService {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`
      }});
-     console.log("La reponse", response);
+    //  console.log("La reponse", response);
       var code = response.status;
       this.nouvelleCommandeId = response.data._id;
 

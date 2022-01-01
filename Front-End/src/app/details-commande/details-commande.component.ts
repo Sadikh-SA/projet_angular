@@ -19,7 +19,7 @@ export class DetailsCommandeComponent implements OnInit {
   async ngOnInit() {
     this.commande = await this.comandeService.getCommande(this.route.snapshot.paramMap.get('id'));
     this.livres = this.commande.livres;
-    console.log(this.livres)
+    //console.log(this.livres)
   }
 
   // prixDuPanier(panier: any[]) : any {

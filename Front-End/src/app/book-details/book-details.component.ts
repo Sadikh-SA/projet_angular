@@ -25,7 +25,7 @@ export class BookDetailsComponent implements OnInit {
   addToPanier(livre:Livre) {
     this.panier.push(livre);
     this.partageService.addTopanier(this.panier);
-    console.log(this.partageService.panier);
+    //console.log(this.partageService.panier);
 
   }
 }

@@ -39,16 +39,6 @@ export class PartageService {
     this.panier.next(temp);
   }
 
-  // viderPanier(){
-  //   console.log("Debut du vidage");
-  //   const temp:[] = this.panier.getValue();
-  //   temp.forEach((livre, index) => {
-  //     //this.removeFromPanier(livre);
-  //     console.log(livre+ " ");
-  //   });
-  //   //this.panier.;
-  //   console.log("Fin du vidage");
-  // }
 
   setAccessToken(tokenString :any ){
     this.accessToken.next(tokenString);
@@ -65,6 +55,14 @@ export class PartageService {
       prix += livre.prix;
     });
     return prix;
+  }
+
+  viderPanier() {
+    const temp = this.panier.getValue();
+    temp.forEach((livre:Livre, index:number) => {
+      this.removeFromPanier(livre);
+    });
+    this.removeTheOnlyLivre();
   }
 
 

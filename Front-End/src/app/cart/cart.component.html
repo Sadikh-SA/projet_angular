@@ -1,5 +1,5 @@
 <section class="breadcrumb-section">
-    <h2 class="sr-only">Site Breadcrumb</h2>
+    <h2 class="sr-only"></h2>
     <div class="container">
         <div class="breadcrumb-contents">
             <nav aria-label="breadcrumb">
@@ -18,7 +18,10 @@
             <div class="page-section-title">
                 <h1>Mon panier</h1>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="panier.length === 0" style="text-align: center;">
+                <p>Votre panier est vide.</p>
+            </div>
+            <div class="row" *ngIf="panier.length > 0">
                 <div class="col-12">
                     <form action="#" class="">
                         <!-- Cart Table -->
@@ -75,7 +78,7 @@
             </div>
         </div>
     </div>
-    <div class="cart-section-2">
+    <div class="cart-section-2" >
         <div class="container">
             <div class="row">
                 <!-- <div class="col-lg-6 col-12 mb--30 mb-lg--0">
@@ -91,12 +94,12 @@
                             <h2>Total <span class="text-primary">{{partageService.prixDuPanier(panier)}}€</span></h2>
                         </div>
                         <div class="cart-summary-button">
-                            <div class="update-block text-left">
+                            <div class="update-block text-left"  *ngIf="panier.length > 0">
                                 <a (click)="viderPanier()"><input type="submit"  class="btn btn-outlined" name="update_cart"
                                     value="Vider mon panier">
                                 </a>
                             </div>
-                            <div class="update-block text-right">
+                            <div class="update-block text-right"  *ngIf="panier.length > 0">
                                 <a routerLink="/checkout"><input type="submit"  class="btn btn-outlined" name="update_cart"
                                     value="Valider mon panier">
                                 </a>

@@ -6,7 +6,7 @@ import { PartageService } from './partage.service';
 })
 export class AuthenticationService {
 
-  constructor(private partageService : PartageService) { }
+  constructor(public partageService : PartageService) { }
   async register(creds: any): Promise<any> {
     var data = JSON.stringify({"nom": creds.nom_complet,"email":creds.email,"password":creds.password1});
     var response;
@@ -32,7 +32,7 @@ export class AuthenticationService {
         'Content-Type': 'application/json'
      }});
       var code = response.status;
-      console.log("la rep", response);
+      //console.log("la rep", response);
       if(code == 201) {
         var token = response.data.accessToken;
         localStorage.setItem("accessToken", token);

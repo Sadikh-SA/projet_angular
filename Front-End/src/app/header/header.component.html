@@ -53,6 +53,9 @@
                                 </div>
                                 <div class="cart-dropdown-block">
                                     <div class=" single-cart-block ">
+                                        <div *ngIf="panier.length === 0" style="text-align: center;">
+                                            <p>Votre panier est vide.</p>
+                                        </div>
                                         <div *ngFor="let livre of panier" class="cart-product">
                                             <a  class="image">
                                                 <img src="{{livre.img}}" alt="">
@@ -69,7 +72,7 @@
                                         <div class="btn-block">
                                             <a routerLink="/cart" class="btn">Voir panier <i
                                                     class="fas fa-chevron-right"></i></a>
-                                            <a routerLink="/checkout" class="btn btn--primary">Commander<i
+                                            <a  *ngIf="panier.length > 0" routerLink="/checkout" class="btn btn--primary">Commander<i
                                                     class="fas fa-chevron-right"></i></a>
                                         </div>
                                     </div>

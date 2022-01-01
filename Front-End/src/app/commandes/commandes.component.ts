@@ -18,9 +18,9 @@ export class CommandesComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.commandes = await this.commandeService.getCommandes().then(data => { return data});
-    console.log('zertdfg',this.commandes);
+    //console.log('zertdfg',this.commandes);
     this.commandes = this.commandes.filter(res => res.user === localStorage.getItem('userId'));
-    console.log("new commandes",this.commandes);
+    //console.log("new commandes",this.commandes);
     
   }
   formaterDate(date:any) {
