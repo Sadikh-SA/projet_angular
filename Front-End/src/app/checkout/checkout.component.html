@@ -28,45 +28,45 @@
                                 <h4 class="checkout-title">Adresse de livraison</h4>
                                 <div class="row">
                                     <div class="col-md-6 col-12 mb--20">
-                                        <label>Nom*</label>
-                                        <input type="text" placeholder="Nom">
+                                        <label [ngClass]="{'red': estRempli.nom === false}">Nom*</label>
+                                        <input type="text" placeholder="Nom" #nom>
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
 
-                                        <label>Prenom*</label>
-                                        <input type="text" placeholder="Prénom">
+                                        <label [ngClass]="{'red': estRempli.prenom === false}">Prenom*</label>
+                                        <input type="text"  placeholder="Prénom" #prenom>
                                     </div>
                                     
                                     <div class="col-12 col-12 mb--20">
-                                        <label>Country*</label>
-                                        <select class="nice-select">
-                                            <option>France</option>
-                                            <option>Belgique</option>
-                                            <option>Suisse</option>
-                                            <option>Espagne</option>
+                                        <label  [ngClass]="{'red': estRempli.pays === false}">Pays*</label>
+                                        <select class="nice-select" #pays>
+                                            <option value="France">France</option>
+                                            <option value="Belgique">Belgique</option>
+                                            <option value="Suisse">Suisse</option>
+                                            <option value="Espagne">Espagne</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
-                                        <label>Email*</label>
-                                        <input type="email" placeholder="xxx@exemple.com">
+                                        <label  [ngClass]="{'red': estRempli.email === false}">Email*</label>
+                                        <input type="email" placeholder="xxx@exemple.com"  #email>
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
-                                        <label>Telephone*</label>
-                                        <input type="tel" placeholder="0XXXXXXXXX">
+                                        <label [ngClass]="{'red': estRempli.telephone === false}">Telephone*</label>
+                                        <input type="number" placeholder="0XXXXXXXXX" #telephone>
                                     </div>
                                    
                                     <div class="col-12 mb--20">
-                                        <label>Adresse*</label>
-                                        <input type="text" placeholder="N° Rue,Nom Rue">
+                                        <label [ngClass]="{'red': estRempli.adresse === false}">Adresse*</label>
+                                        <input type="text" placeholder="N° Rue,Nom Rue" #adresse>
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
-                                        <label>Ville*</label>
-                                        <input type="text" placeholder="Ville">
+                                        <label [ngClass]="{'red': estRempli.ville === false}">Ville*</label>
+                                        <input type="text" placeholder="Ville" #ville >
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
 
-                                        <label>Code Postal*</label>
-                                        <input type="text" placeholder="Code Postal">
+                                        <label [ngClass]="{'red': estRempli.codepostal === false}">Code Postal*</label>
+                                        <input type="text" placeholder="Code Postal" #codepostal>
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
                                         <p>Sous Total <span>{{partageService.prixDuPanier(panier)}}€</span></p>
                                         <p>Frais de livraison <span>00.00€</span></p>
                                         <h4>Total <span>{{partageService.prixDuPanier(panier)}}€</span></h4>
-                                        <a (click)="validerPanier([])"><button class="place-order w-100">Commander</button></a>
+                                        <a (click)="validerPanier({nom: nom.value, prenom: prenom.value, email: email.value,pays: pays.value ,telephone: telephone.value, adresse: adresse.value,ville: ville.value, codepostal: codepostal.value})"><button class="place-order w-100">Commander</button></a>
                                     </div>
                                 </div>
                             </div>

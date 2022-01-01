@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,8 +20,15 @@ export class CommandeService {
      console.log("La reponse", response);
       var code = response.status;
       this.nouvelleCommandeId = response.data._id;
+
       return code == 201;
-    } catch (error) {
+    } catch (error:any) {
+      if(error.response.status === 401)
+        Swal.fire(
+          'Erreur',
+          "Votre session a probablemment expiré. Veuillez vous connecter.",
+          'error'
+        )
       return false;
     }
   }
@@ -35,7 +43,13 @@ export class CommandeService {
      }});
       var data = response.data;
       return data;
-    } catch (error) {
+    } catch (error: any) {
+      if(error.response.status === 401)
+      Swal.fire(
+        'Erreur',
+        "Votre session a probablemment expiré. Veuillez vous connecter.",
+        'error'
+      )
       return false;
     }
   }
@@ -49,7 +63,13 @@ export class CommandeService {
      }});
       var data = response.data.data;
       return data;
-    } catch (error) {
+    } catch (error:any) {
+      if(error.response.status === 401)
+      Swal.fire(
+        'Erreur',
+        "Votre session a probablemment expiré. Veuillez vous connecter.",
+        'error'
+      )
       return false;
     }
   }
