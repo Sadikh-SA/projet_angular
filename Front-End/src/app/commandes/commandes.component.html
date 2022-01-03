@@ -19,8 +19,9 @@
                 <h1>Mes Commandes</h1>
             </div>
             <div class="row">
+                <div class="loader" *ngIf="!hideLoader"></div>
                 <div class="col-12">
-                    <form action="#" class="">
+                    <form action="#" class="" *ngIf="commandes.length > 0 && hideLoader">
                         <!-- Cart Table -->
                         <div class="cart-table table-responsive mb--40">
                             <table class="table">
@@ -67,27 +68,20 @@
     <div class="cart-section-2">
         <div class="container">
             <div class="row">
-                <!-- <div class="col-lg-6 col-12 mb--30 mb-lg--0">
-
-                </div> -->
-                <!-- Cart Summary -->
-                <div class="col-lg-12 col-12 d-flex">
+                <div class="col-lg-12 col-12"  *ngIf="commandes.length === 0" style="text-align: center;">
+                    <h3> Aucune commande pour le moment.</h3>
+                </div>
+                <!-- <div class="col-lg-12 col-12 d-flex">
                     <div class="cart-summary">
                         <div class="cart-summary-wrap">
-                            <!-- <h4><span>Résumé de votre panier</span></h4>
-                            <p>Sous total <span class="text-primary">{{partageService.prixDuPanier(panier)}}€</span></p>
-                            <p>Frais de livraison <span class="text-primary">00.00€</span></p>
-                            <h2>Total <span class="text-primary">{{partageService.prixDuPanier(panier)}}€</span></h2> -->
+                          
                         </div>
                         <div class="cart-summary-button">
                             <div class="update-block text-right">
-                                <!-- <a routerLink="/checkout"><input type="submit"  class="btn btn-outlined" name="update_cart"
-                                    value="Valider mon panier">
-                                </a> -->
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
