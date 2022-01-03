@@ -12,9 +12,9 @@ describe('CommandeService', () => {
     authenticationService = TestBed.inject(AuthenticationService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+  // it('should be created', () => {
+  //   expect(service).toBeTruthy();
+  // });
 
   it("Cette methode permet d'ajouter une commande", async () => {
     await authenticationService.login({email: "test@test.com", password: "azerty", strategy: "local"});

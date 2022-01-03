@@ -17,7 +17,6 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.partageService.panier.subscribe(panier => {
       this.panier = panier;
-      //console.log("panier", panier);
     })
   }
 

@@ -12,22 +12,13 @@ import { PartageService } from '../Services/partage.service';
 export class DetailsCommandeComponent implements OnInit {
   public commande : Commande;
   public livres : Livre[] = [];
-  constructor(private comandeService: CommandeService, private route:ActivatedRoute, public partageService:PartageService) {
+  constructor(public comandeService: CommandeService, private route:ActivatedRoute, public partageService:PartageService) {
     this.commande = new Commande();
    }
 
   async ngOnInit() {
     this.commande = await this.comandeService.getCommande(this.route.snapshot.paramMap.get('id'));
     this.livres = this.commande.livres;
-    //console.log(this.livres)
   }
-
-  // prixDuPanier(panier: any[]) : any {
-  //   var prix = 0;
-  //   panier.forEach(livre => {
-  //     prix += livre.prix;
-  //   });
-  //   return prix;
-  // }
 
 }

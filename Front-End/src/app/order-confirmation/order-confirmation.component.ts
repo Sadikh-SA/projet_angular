@@ -25,14 +25,6 @@ export class OrderConfirmationComponent implements OnInit {
 
   }
 
-  // prixDuPanier(panier: any[]) : any {
-  //   var prix = 0;
-  //   panier.forEach(livre => {
-  //     prix += livre.prix;
-  //   });
-  //   return prix;
-  // }
-
   getTodayDate() {
     return new Date().toLocaleDateString('fr-FR');
   }

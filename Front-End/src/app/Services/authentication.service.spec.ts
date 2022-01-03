@@ -10,9 +10,9 @@ describe('AuthenticationService', () => {
     service = TestBed.inject(AuthenticationService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+  // it('should be created', () => {
+  //   expect(service).toBeTruthy();
+  // });
 
   it("La méthode authentifie un utilisateur", async ()=> {
     let estAuthentifie:boolean = await service.login({email: "test@test.com", password: "azerty", strategy: "local"});

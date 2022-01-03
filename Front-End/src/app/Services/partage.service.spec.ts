@@ -10,9 +10,9 @@ describe('PartageService', () => {
     service = TestBed.inject(PartageService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+  // it('should be created', () => {
+  //   expect(service).toBeTruthy();
+  // });
 
   it("Cette methode permet de mettre à jour le nom du client", () => {
     service.setNom("Toto");

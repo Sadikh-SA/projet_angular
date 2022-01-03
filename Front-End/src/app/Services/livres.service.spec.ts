@@ -12,13 +12,15 @@ describe('LivresService', () => {
     authenticationService = TestBed.inject(AuthenticationService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+  // it('should be created', () => {
+  //   expect(service).toBeTruthy();
+  // });
 
   it("Cette méthode permet de recupérer un livre en fonction de son _id", async () => {
     await authenticationService.login({email: "test@test.com", password: "azerty", strategy: "local"});
     let livreRecupere: Livre = await service.getLivre("61c788958e0fda4fecc75bbc");
+    /*console.log("livre",livreRecupere);
+    expect(livreRecupere);*/
     expect(livreRecupere._id).toEqual("61c788958e0fda4fecc75bbc");
     localStorage.setItem("accessToken", "");
   });
