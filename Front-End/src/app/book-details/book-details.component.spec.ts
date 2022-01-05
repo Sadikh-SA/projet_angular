@@ -1,5 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { Livre } from '../models/Livre';
 import { AuthenticationService } from '../Services/authentication.service';
 
@@ -9,10 +11,12 @@ describe('BookDetailsComponent', () => {
   let component: BookDetailsComponent;
   let fixture: ComponentFixture<BookDetailsComponent>;
   let authenticationService: AuthenticationService;
+  let route : ActivatedRoute;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BookDetailsComponent ]
+      declarations: [ BookDetailsComponent ],
+      imports: [RouterTestingModule, HttpClientModule],
     })
     .compileComponents();
   });
@@ -25,7 +29,7 @@ describe('BookDetailsComponent', () => {
 
   it('cette methode permet de récupérer le livre de l"identifiant', async () => {
     //await authenticationService.login({email: "abougueye96@yahoo.fr", password: "Moimeme", strategy: "local"});
-    let livre :Livre = await component.livresService.getLivre("61c788958e0fda4fecc75bbc")
+    let livre :any = await component.livresService.getLivre("61c788958e0fda4fecc75bbc");
     expect(livre._id).toEqual("61c788958e0fda4fecc75bbc");
 
   });

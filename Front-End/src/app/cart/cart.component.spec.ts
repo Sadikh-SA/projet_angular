@@ -31,7 +31,7 @@ describe('CartComponent', () => {
     //await authenticationService.login({email: "abougueye96@yahoo.fr", password: "Moimeme", strategy: "local"});
     let livre :any = component.partageService.panier.getValue().lastIndexOf;
     component.removeFromPanier(livre);
-    expect(component.panier);
+    expect(component.panier[livre._id]).toBeFalse();
     //localStorage.setItem("accessToken", "");
 
   });

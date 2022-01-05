@@ -32,8 +32,8 @@ describe('CommandeService', () => {
   });
 
   it("Cette méthode permet de recupérer toutes les commandes de l'utilisateur connecté", async () => {
-    await authenticationService.login({email: "test@test.com", password: "azerty", strategy: "local"});
-    let commanderecuperee: Commande[] = await service.getCommandes();
+    await authenticationService.login({email: "abougueye96@yahoo.fr", password: "Moimeme", strategy: "local"});
+    let commanderecuperee: any = service.getCommandes();
     expect(commanderecuperee.length).toBeGreaterThanOrEqual(1);
     localStorage.setItem("accessToken", "");
   });
