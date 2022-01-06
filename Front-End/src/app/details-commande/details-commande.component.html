@@ -16,10 +16,12 @@
 <section class="order-complete inner-page-sec-padding-bottom">
     <div class="container">
         <div class="row">
+            
             <div class="col-12">
-                <h3 class="order-table-title">Détails de la commande</h3>
                 <div class="table-responsive">
-                    <table class="table order-details-table">
+                    <h3 class="order-table-title">Détails de la commande</h3>
+                    
+                    <table class="table order-details-table" *ngIf="hideLoader">
                         <thead>
                             <tr>
                                 <th>Images</th>
@@ -38,15 +40,18 @@
                         <tfoot>
                             <tr>
                                 <th>Sous total:</th>
+                                <td><span></span></td>
                                 <td><span>{{partageService.prixDuPanier(livres)}}€</span></td>
                             </tr>
                             <tr>
                                 <th>Total:</th>
+                                <td><span></span></td>
                                 <td><span>{{partageService.prixDuPanier(livres)}}€</span></td>
                             </tr>
                         </tfoot>
                     </table>
                 </div>
+                <div class="loader" *ngIf="!hideLoader"></div>
             </div>
         </div>
     </div>

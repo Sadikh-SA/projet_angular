@@ -20,7 +20,7 @@ describe('AuthenticationService', () => {
     expect(localStorage.getItem("accessToken")?.length).toBeGreaterThanOrEqual(10);
     let tokenDecode: any = jwt_decode(String(localStorage.getItem("accessToken")));
     expect(!tokenDecode).toEqual(false);
-    localStorage.setItem("accessToken", "");
+    //localStorage.setItem("accessToken", "");
     // estAuthentifie = await service.login({email: "test@test.com", password: "azertyy", strategy: "local"});
     // try {
     //   tokenDecode = jwt_decode(String(localStorage.getItem("accessToken")));

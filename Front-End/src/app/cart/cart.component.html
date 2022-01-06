@@ -41,7 +41,7 @@
                                 <tbody>
                                     <!-- Product Row -->
                                     <tr *ngFor="let livre of panier">
-                                        <td class="pro-remove"><a (click)="removeFromPanier(livre)" href="#"><i class="far fa-trash-alt"></i></a>
+                                        <td class="pro-remove"><a (click)="removeFromPanier(livre)"><i class="far fa-trash-alt"></i></a>
                                         </td>
                                         <td class="pro-thumbnail"><a href="#"><img
                                                     src="{{livre.img}}" alt="Product"></a></td>

@@ -11,14 +11,16 @@ import { PartageService } from '../Services/partage.service';
 })
 export class DetailsCommandeComponent implements OnInit {
   public commande : Commande;
+  public hideLoader: boolean = false;
   public livres : Livre[] = [];
-  constructor(public comandeService: CommandeService, private route:ActivatedRoute, public partageService:PartageService) {
+  constructor(private comandeService: CommandeService, private route:ActivatedRoute, public partageService:PartageService) {
     this.commande = new Commande();
    }
 
   async ngOnInit() {
     this.commande = await this.comandeService.getCommande(this.route.snapshot.paramMap.get('id'));
     this.livres = this.commande.livres;
+    this.hideLoader= true;
   }
 
 }

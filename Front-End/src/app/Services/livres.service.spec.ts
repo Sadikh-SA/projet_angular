@@ -22,13 +22,13 @@ describe('LivresService', () => {
     /*console.log("livre",livreRecupere);
     expect(livreRecupere);*/
     expect(livreRecupere._id).toEqual("61c788958e0fda4fecc75bbc");
-    localStorage.setItem("accessToken", "");
+    //localStorage.setItem("accessToken", "");
   });
 
   it("Cette méthode permet de recupérer tous les livres de l'utilisateur connecté", async () => {
     await authenticationService.login({email: "test@test.com", password: "azerty", strategy: "local"});
     let livreRecuperes: Livre[] = await service.getLivres();
     expect(livreRecuperes.length).toBeGreaterThanOrEqual(2);
-    localStorage.setItem("accessToken", "");
+    //localStorage.setItem("accessToken", "");
   });
 });

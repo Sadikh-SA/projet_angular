@@ -10,8 +10,8 @@ import { CommandeService } from '../Services/commande.service';
 })
 export class CommandesComponent implements OnInit {
 
-  public commandes : Commande[];
-
+  public commandes : Commande[] = [];
+  public hideLoader: boolean = false;
   constructor( private commandeService:CommandeService) { 
     this.commandes = [new Commande()];
   }
@@ -19,6 +19,7 @@ export class CommandesComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.commandes = await this.commandeService.getCommandes().then(data => { return data});
     this.commandes = this.commandes.filter(res => res.user === localStorage.getItem('userId'));
+    this.hideLoader = true;
   }
   formaterDate(date:any) {
     var dt = new Date(Date.parse(date));
