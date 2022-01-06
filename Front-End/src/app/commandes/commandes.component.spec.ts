@@ -28,10 +28,10 @@ describe('CommandesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('Cette methode permet de formatter la date ', async() => {
-    await authenticationService.login({email: "test@test.com", password: "azerty", strategy: "local"});
-    let resultat = component.formaterDate(maDate);
-    expect(resultat);
+  // it('Cette methode permet de formatter la date ', async() => {
+  //   await authenticationService.login({email: "test@test.com", password: "azerty", strategy: "local"});
+  //   let resultat = component.formaterDate(maDate);
+  //   expect(resultat);
 
-  });
+  // });
 });
