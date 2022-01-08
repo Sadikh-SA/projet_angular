@@ -61,9 +61,11 @@ export class CommandeService {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`
      }});
+     console.log(response)
       var data = response.data.data;
       return data;
     } catch (error:any) {
+      console.log("Merde");
       if(error.response.status === 401)
       Swal.fire(
         'Erreur',
