@@ -27,8 +27,8 @@ describe('CommandeService', () => {
 
   it("Cette méthode permet de recupérer une commande en fonction de son _id", async () => {
     await authenticationService.login({email: "test@test.com", password: "azerty", strategy: "local"});
-    let commanderecuperee: Commande = await service.getCommande("61d353e8bc1a4c2008968928");
-    expect(commanderecuperee._id).toEqual("61d353e8bc1a4c2008968928");
+    let commanderecuperee: Commande = await service.getCommande("61da2343e371350875469f59");
+    expect(commanderecuperee._id).toEqual("61da2343e371350875469f59");
     localStorage.setItem("accessToken", "");
   });
 
