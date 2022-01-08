@@ -2,12 +2,26 @@ import { TestBed } from '@angular/core/testing';
 import { Livre } from '../models/Livre';
 import { PartageService } from './partage.service';
 
+class MockPartageService {
+  public panier:Livre[] = [];
+  public addToPanier(livre:Livre) {
+    this.panier.push(livre);
+  }
+
+  getTaillePanier():number {
+    return this.panier.length;
+  }
+
+}
+let mock:any=null;
 describe('PartageService', () => {
   let service: PartageService;
+  let serviceMock: MockPartageService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(PartageService);
+    serviceMock = new MockPartageService;
   });
 
   // it('should be created', () => {
@@ -57,36 +71,33 @@ describe('PartageService', () => {
     expect(service.prixDuPanier(panier)).toEqual(50);
   });
 
-  // it("Cette methode permet d'ajouter un livre au panier", () => {
-  //   service.addTopanier({
-  //       "_id": "61c7866e8e0fda4fecc75bb0",
-  //       "nom": "Hunger Games : L'Embrasement",
-  //       "auteur": "Suzanne Collins",
-  //       "categorie": "Fiction",
-  //       "description": "",
-  //       "annee": 2009,
-  //       "prix": 35,
-  //       "img": "https://images-na.ssl-images-amazon.com/images/I/61fVX6sjycL.jpg",
-  //       "createdAt": "2021-12-25T21:00:30.436Z",
-  //       "updatedAt": "2021-12-25T21:00:30.436Z",
-  //     })
-  //     console.log("yo", service.panier.value)
-  //     expect((service.panier.value._id).toEqual("61c7866e8e0fda4fecc75bb0");;
-  //     service.addTopanier({
-  //       "_id": "df5sdfdfes5sdfsdfsdfsd",
-  //       "nom": "Pas de témoins pour un massacre",
-  //       "auteur": "Cambera",
-  //       "categorie": "Fiction",
-  //       "description": "",
-  //       "annee": 2009,
-  //       "prix": 15,
-  //       "img": "",
-  //       "createdAt": "2021-12-25T21:00:30.436Z",
-  //       "updatedAt": "2021-12-25T21:00:30.436Z",
-  //     })
-  //     expect((service.panier.value._id)).toEqual("df5sdfdfes5sdfsdfsdfsd");
-  //     console.log("yo", service.panier.getValue())
-  // });
+  it("Cette methode permet d'ajouter un livre au panier", () => {
+    serviceMock.addToPanier({
+        "_id": "61c7866e8e0fda4fecc75bb0",
+        "nom": "Hunger Games : L'Embrasement",
+        "auteur": "Suzanne Collins",
+        "categorie": "Fiction",
+        "description": "",
+        "annee": 2009,
+        "prix": 35,
+        "img": "https://images-na.ssl-images-amazon.com/images/I/61fVX6sjycL.jpg",
+        "createdAt": "2021-12-25T21:00:30.436Z",
+        "updatedAt": "2021-12-25T21:00:30.436Z",
+      })
+      serviceMock.addToPanier({
+        "_id": "df5sdfdfes5sdfsdfsdfsd",
+        "nom": "Pas de témoins pour un massacre",
+        "auteur": "Cambera",
+        "categorie": "Fiction",
+        "description": "",
+        "annee": 2009,
+        "prix": 15,
+        "img": "",
+        "createdAt": "2021-12-25T21:00:30.436Z",
+        "updatedAt": "2021-12-25T21:00:30.436Z",
+      })
+      expect((serviceMock.getTaillePanier())).toEqual(2);
+  });
 
 
 
