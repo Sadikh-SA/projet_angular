@@ -4,6 +4,9 @@ Description : Site de vente de livres.
 Pour récupérer le projet lancer la commande:
 git clone https://github.com/Sadikh-SA/projet_angular.git
 
+
+S'assurer d'avoir node et npm installé. Si non, l'installer : https://nodejs.org/fr/download/ 
+
 ## Back-End
 Description : le dossier Back-End du projet contient une l’API connectée à une base de données mongodb.
 
