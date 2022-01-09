@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from './material/material.module';
+// import { MaterialModule } from './material/material.module';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
@@ -38,7 +38,7 @@ import { DetailsCommandeComponent } from './details-commande/details-commande.co
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    // MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

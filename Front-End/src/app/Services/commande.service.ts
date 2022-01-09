@@ -56,14 +56,16 @@ export class CommandeService {
   async getCommandes(): Promise<any> {
     var response:any;
     try {
-      response = await axios.get("http://localhost:3030/commandes/?user="+localStorage.getItem("userId"), {headers: {
+      response = await axios.get("http://localhost:3030/commandes/?user="+localStorage.getItem("userId")+"&$limit=20", {headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`
      }});
+     console.log(response)
       var data = response.data.data;
       return data;
     } catch (error:any) {
+      console.log("Merde");
       if(error.response.status === 401)
       Swal.fire(
         'Erreur',

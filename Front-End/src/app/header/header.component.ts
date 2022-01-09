@@ -3,13 +3,14 @@ import $ from 'jquery';
 import {MatIconModule} from '@angular/material/icon';
 import { MatSort } from '@angular/material/sort';
 import { PartageService } from '../Services/partage.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  constructor(public partageService:PartageService) {
+  constructor(public partageService:PartageService, private route : Router) {
     this.partageService.accessToken.subscribe((accessToken: any) => this.accessToken = accessToken);
     this.partageService.nomClient.subscribe((nomClient: any) => this.nomClient = nomClient);
   }
@@ -57,6 +58,7 @@ export class HeaderComponent implements OnInit {
     localStorage.setItem("accessToken", "");
     localStorage.setItem("nomClient", "");
     //console.log("logout");
+    this.route.navigate(['/']);
     window.location.reload();
   }
 }

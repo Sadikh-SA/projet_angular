@@ -19,7 +19,8 @@ describe('OrderConfirmationComponent', () => {
     fixture.detectChanges();
   });
 
-  /*it('should create', () => {
-    expect(component).toBeTruthy();
-  });*/
+  // it('cett methode nous permet de voir la commande validé', () => {
+  //   let res = component.getCommandeId();
+  //   expect(res).toBeGreaterThanOrEqual(1);
+  // });
 });

@@ -22,8 +22,8 @@ describe('DetailsCommandeComponent', () => {
 
   it('cette methode permet de chercher une commande', async () => {
     await authenticationService.login({email: "test@test.com", password: "azerty", strategy: "local"});
-    let commande :Commande = await commandeService.getCommande("61d353e8bc1a4c2008968928");
-    expect(commande._id).toEqual("61d353e8bc1a4c2008968928");
+    let commande :Commande = await commandeService.getCommande("61da2343e371350875469f59");
+    expect(commande._id).toEqual("61da2343e371350875469f59");
     localStorage.setItem("accessToken", "");
   });
 
