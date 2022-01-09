@@ -5,7 +5,7 @@ Pour récupérer le projet lancer la commande:
 git clone https://github.com/Sadikh-SA/projet_angular.git
 
 ## Back-End
-Description : le dossier Back-End du projet contient la base de données (MongoDB) et l’API.
+Description : le dossier Back-End du projet contient une l’API connectée à une base de données mongodb.
 
 Déplacez-vous dans le dossier `Back-End/`
 cd chemin/Back-End
@@ -31,6 +31,7 @@ Dans le cas où le serveur ne se lance pas,
 Faite un coup de : rm -rf node_modules
 Et relancer les commandes précédentes.
 
-## Tests unitaire avec Karma
-lancer la commande: ng test puis visualiser par la console ou le navigateur.
+## Tests unitaire avec Jasmine & Karma
+- Executer l'API 
+- Se deplacer dans le dossier Front-End puis lancer la commande: ng test puis visualiser par la console ou le navigateur.
 
